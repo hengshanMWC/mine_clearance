@@ -1,0 +1,696 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>好犀雷</title>
+<style>
+.ds{
+	margin-left:40px;
+}
+.chuda{
+	font-size:16px;
+	font-weight:bold;
+}
+.di button,.di div{
+	margin:0;
+	padding:0;
+	width:25px;
+	height:25px;
+	float:left;
+}
+.kk input{
+	width:40px;
+	height:20px;
+	background:#6FF;
+	font-size:16px;
+}
+.di button{
+	background:#00F;
+}
+.kk{
+	margin:20px 63px 20px 63px;
+	width:245px;
+	height:30px;
+	border:0px;
+}
+.hong{
+	background:red !important;
+}
+#A,#B,.di div{
+	border:#000 solid 1px;
+}
+#A{
+	margin: 0 50%;
+	position: relative;
+	transform: translateX(-50%);
+	display: inline-block;
+
+}
+.di{
+	position: relative;
+	margin: 0 63px 30px 63px;
+	display: inline-block;
+}
+#come_back{
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	margin: 15px 0 0 5px;
+	color: #fff;
+	border: none;
+	background: #3cbd83;
+	box-shadow: 0 0 7px 1px #3cbd83;
+	cursor: pointer;
+    outline: none;
+}
+#A>button:hover{
+	font-size:16px;
+	color:#660;
+}
+.ld_box{
+	height:25px;
+	position:relative;
+}
+.ld{
+	width:40px;
+	height:100%;
+	position:absolute;
+	background:#CCC;
+	padding-left:10px;
+    cursor: grab;
+}
+#B{
+	width:200px;
+	height:350px;
+	border:#000 solid 1px;
+	position:absolute;
+	right:0;
+	top:0;
+}
+#B >div{
+	width:110px;
+	height:40px;
+	left:25px;
+	position:relative;
+	padding:15px 0 0 30px;
+}
+.B1{
+	border:#FF0 solid 1px;
+	top:30px;
+}
+.B2{
+	border:#999 solid 1px;
+	top:60px;
+}
+.B3{
+	border:#F90 solid 1px;
+	top:90px;
+}
+#dian{
+	position:absolute;
+	top:350px;
+	right:0;
+}
+.num_box{
+	margin-bottom: 20px;
+    text-align: center;
+}
+.num_box input{
+	width: 75px;
+	padding: 2px 5px;
+	border: thin solid #ded6d6;
+	height: 17px;
+}
+.num_box button{
+	width: 75px;
+	border-radius: 6px;
+	border: none;
+	color: #fff;
+	background: #64c2d2;
+	height: 25px;
+	cursor: pointer;
+}
+</style>
+<!-- <script src="../DWTYDKJ3.0.js"></script>
+<script src="../cookie基本操作.js"></script> -->
+<script>
+function setStyle(oA,mX,json,fnH){//节点，速率，样式，后续方法
+	clearInterval(oA.oD);
+	oA.oD=setInterval(function(){
+		var bT=true;//循环json的没个要调的值，然后结束定时器
+		for(var sS in json){
+		    if(sS!='opacity'){
+		         m=parseInt(getStyle(oA,sS));//获得该属性的值
+		    }else{
+		         m=Math.round(parseFloat(getStyle(oA,sS))*100);//小数点失去精，要四舍五入,透明度*100方便计算
+		    }
+		    var mS=(json[sS]-m)/mX;
+		    mS=mS>0?Math.ceil(mS):Math.floor(mS);
+			
+			if(sS=='opacity'){
+				oA.style.filter='alpha(opacity:'+(m+mS)+')';
+				oA.style.opacity=(m+mS)/100;
+			}else{
+			    oA.style[sS]=m+mS+'px';
+		    }
+			if(m!=json[sS]){
+			    bT=false;
+		    }
+		}
+		if(bT){
+			clearInterval(oA.oD);
+		    if(fnH){
+			   fnH();
+	        }
+		}
+	},30);
+}
+
+function setY(oA,mZ,mJ,mS){//节点，目标值，增值，时间
+		clearInterval(oA.oD);
+		if(!oA.style.borderRadius){
+			oA.style.borderRadius='1px';
+		}
+		var mM=parseInt(oA.style.borderRadius);
+		oA.oD=setInterval(function(){
+			if(mM!=mZ){
+				mM=parseInt(oA.style.borderRadius)+mJ;
+			    oA.style.borderRadius=mM+'px';
+			}else{
+				clearInterval(oA.oD);
+			}
+		},mS);
+
+}
+function getStyle(oA,sS){//为什么了兼容
+	if(oA.currentStyle){
+		return oA.currentStyle[sS];
+	}else{
+		return getComputedStyle(oA)[sS];
+	}
+}
+function getClass(obj,sClass){
+	var aA=obj.getElementsByTagName('*');
+	var aB=[];
+	for(var i=0;i<aA.length;i++){
+		if(aA[i].className==sClass){
+			aB.push(aA[i]);
+		}
+	}
+	return aB;
+}
+</script>
+<script>
+	function IsPC() {
+	   var userAgentInfo = navigator.userAgent;
+	   var Agents = ["Android", "iPhone",
+	      "SymbianOS", "Windows Phone",
+	      "iPad", "iPod"];
+	   var flag = true;
+	   for (var v = 0; v < Agents.length; v++) {
+	      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+	         flag = false;
+	         break;
+	      }
+	   }
+	   return flag;
+	}
+</script>
+<script>
+	// JavaScript Document
+function setCookie(key,value,m){//创建
+	var oDate=new Date();
+	oDate.setDate(oDate.getDate()+m);
+	document.cookie=key+'='+value+";expires="+oDate;
+}
+function getCookieK(key){//用key来查找，返回一个value
+	var aCookie=document.cookie.split('; ');
+	for(var i=0;i<aCookie.length;i++){
+		var aA=aCookie[i].split('=');
+		if(aA[0]==key){
+			return aA[1];
+		}
+	}
+	return '';
+}
+function getCookieV(value){//用value来查找，返回key数组
+	var aV=[];
+	var aCookie=document.cookie.split('; ');
+	for(var i=0;i<aCookie.length;i++){
+		var aA=aCookie[i].split('=');
+		if(aA[1]==value){
+			aV.push(aA[0]);
+		}
+	}
+	return aV;
+}
+function removeCookieK(key){//删掉key相同的cookie
+	setCookie(key,1,-1);
+}
+function removeCookieV(value){//删掉value相同的cookie
+	var aV=getCookieV(value);
+	for(var i=0;i<aV.length;i++){
+		removeCookieK(aV[i]);
+	}
+}
+</script>
+<script>
+window.onload=function(){
+	//连续点击定时器会停
+	var oDiv = document.getElementById('A');
+	var oDivB = document.getElementById('B');
+	var oInput = document.getElementById('dian');
+
+	var oDivld = getClass(oDiv,'ld')[0];
+	var oDivkk = getClass(oDiv,'kk')[0];
+	var oDivdi  =  getClass(oDiv,'di')[0];//备雷地
+	var oDiv1 = getClass(oDivB,'B1')[0];
+	var oDiv2 = getClass(oDivB,'B2')[0];
+	var oDiv3 = getClass(oDivB,'B3')[0];
+	var o1 = getCookieK('o1');
+	var o2 = getCookieK('o2');
+	var o3 = getCookieK('o3');
+
+	var OCr_di = getClass(oDivdi,'cr_di')[0];//布雷地
+	var aInput = oDivkk.getElementsByTagName('input');
+	oDivdi.abc = true;
+	oDivdi.state = true;//判断是否开局，判断定时器
+	oInput.dian = true;//让榜单有2重点击效果
+	
+	oDiv1.innerHTML = o1+':'+getCookieK('B1')+'秒';
+	oDiv2.innerHTML = o2+':'+getCookieK('B2')+'秒';
+	oDiv3.innerHTML = o3+':'+getCookieK('B3')+'秒';
+	
+	var come_back = {};//储存本局
+	var oD = null;//定时器
+	var difficulty = {//雷局
+		num:0,
+		numX:0,
+		numY:0,
+		lei:0,
+	}
+	oDivdi.red=0;
+	if(IsPC()){
+		oDivld.onmousedown = function(e){//用运动的鼠标位置减去按下的鼠标位置
+			var v=e||event;
+			var mL=e.clientX-oDivld.offsetLeft;
+			document.onmousemove=function(e){
+				var v=e||event;
+				var mML=v.clientX-mL;
+				if(mML>oDiv.offsetWidth-oDivld.offsetWidth){
+					mML=oDiv.offsetWidth-mML.offsetWidth;
+					oDivdi.state = true;
+					fnJC(fnP);
+				}
+				if(mML<0){
+				   mML=0;
+				}
+				oDivld.style.left=mML+'px';
+			}
+			document.onmouseup = function(){
+				if(oDivld.offsetLeft!=0){
+					setStyle(oDivld,10,{left:0});
+				}
+				document.onmousemove=null;
+				document.onmouseup=null;
+			}
+			return false;
+		}
+	}else{
+		oDivld.innerHTML = '重开';
+		oDivld.onclick = function(){
+			oDivdi.state = true;
+			fnJC(fnP);
+		}
+	}
+	document.querySelector('.num_box>button').onclick = function(){
+		var num = document.querySelector('.num_inp').value;
+		var lei = document.querySelector('.lei_inp').value;
+		if(!/^[1-9][0-9]*\*[1-9][0-9]*$/.test(num)){
+			alert('我求求你，请设置成数字*数字，不然运行不下去');
+			return;
+		}
+		if(!lei>0){
+			alert('没雷扫你个屁啊！');
+			return;
+		}
+		num = num.split('*');
+		difficulty.num = num[0]*num[1];
+		difficulty.numX = parseInt(num[0]);
+		difficulty.numY = parseInt(num[1]);
+		difficulty.lei = parseInt(lei);
+		console.log(difficulty);
+	}
+	document.querySelector('.num_box>button').click();
+	fnJC(fnP);
+	aInput[1].value=difficulty.lei - oDivdi.red;
+	document.getElementById('come_back').onclick = function(){
+		fnJC();
+		oDivdi.replaceChild(come_back,OCr_di);
+		OCr_di = come_back;
+	}
+	//导致输入框无法获取焦点
+	// oDiv.oncontextmenu=document.onmousedown=function(){
+	// 	return false;
+	// }
+	
+	oInput.onclick=function(){
+		if(oInput.dian){
+		    setStyle(oInput,10,{right:-oInput.offsetWidth},function(){
+			    setStyle(oDivB,10,{right:-oDivB.offsetWidth},function(){
+				    setStyle(oInput,10,{right:0});
+					oInput.dian=false;
+			    });
+		    });
+		}else{
+			setStyle(oInput,10,{right:-oInput.offsetWidth},function(){
+				setStyle(oDivB,10,{right:0},function(){
+					setStyle(oInput,10,{right:0});
+					oInput.dian=true;
+				});
+			})
+		}
+	}
+	function fnJC(fn){//集成的
+	    clearInterval(oD);
+		oD=null;
+		while(OCr_di.children.length){
+			OCr_di.removeChild(OCr_di.children[0]);
+		}
+		aInput[0].value=0;
+		oDivdi.red=0;
+		aInput[1].value=difficulty.lei-oDivdi.red;
+		if(fn)fn();
+		OCr_di.onclick = function(e){
+			if(e.target.nodeName == 'BUTTON'){
+				if(oDivdi.abc){
+					fnKS();
+				}
+				// fnRemove(e.target);
+				//这这里设置的话，会触发不了定时器
+			    // oDivdi.state = false;
+				oDivdi.abc = true;
+				if(oD==1){
+				    OCr_di.onclick=null;
+				}
+			}
+		}
+	}
+	
+	function fnKS(){//计时
+		if(oDivdi.state && oDivdi.abc){
+			oDivdi.state = false;
+		    clearInterval(oD);
+		    if(aInput[0].value == 0)++aInput[0].value;
+			oD = setInterval(function(){
+				++aInput[0].value;
+			},1000);
+		}
+	}
+	
+	
+	function fnYJ(){//右键操作
+		if(oDivdi.red==difficulty.lei){
+			this.yj = false;
+		}
+		if(this.yj){//是否设置为雷
+			this.className = "hong";
+			this.onclick = null;//去掉点击事件
+			this.yj = false;
+			oDivdi.red++;//设置上限++
+		}else{
+			if(this.className == "hong"){
+				this.yj = true;
+				 oDivdi.red--;//设置上限--
+			}
+			this.className = "";
+			this.onclick = function(){//添加点击事件
+				fnRemove(this.parentNode.parentNode.children,this.z,9,this.aA);
+			};
+	    }
+	    aInput[1].value = difficulty.lei - oDivdi.red;
+	    return false;
+	}
+	
+	function fnP(){//局初始化
+	    for(var i=0;i<difficulty.num;i++){
+		    var oD=document.createElement('div');
+		    OCr_di.appendChild(oD);
+		    var oI=document.createElement('button');
+		    oI.yj=true;//是否已经被右键
+		    oI.oncontextmenu=fnYJ;
+		    oD.appendChild(oI);
+	    }
+	    OCr_di.style.height=OCr_di.children[0].offsetHeight*difficulty.numY+'px'
+	    OCr_di.style.width=OCr_di.children[0].offsetWidth*difficulty.numX+'px';
+		fnL();
+	}
+	//设置雷数
+	function fnL(){
+		var aL=[];
+		for(var x=0;x<difficulty.lei;x++){
+			var mL=parseInt(Math.random()*difficulty.num);
+			for(var y=0;y<aL.length;y++){
+				if(aL[y]==mL){
+					x--;
+					break;
+				}
+			}
+			OCr_di.children[mL].zi='雷';
+			aL.push(mL);
+		}
+		fnM(OCr_di.children,difficulty.num);
+	}
+	//初始化按钮块属性
+	function fnM(aSquare,mM){//正方形的周围(数组，面积，边长)
+		for(var z = 0;z<aSquare.length;z++){
+			aSquare[z].children[0].z=z;
+			if(aSquare[z].zi != '雷'){
+			    if(z%difficulty.numY == 0){//判断是否是每行的第一个//左边
+				    if(z == 0){//左上
+						 aSquare[z].children[0].aA=['南','东','东南'] 
+				    }else if(z == difficulty.num-difficulty.numY){//左下
+						aSquare[z].children[0].aA=['北','东','东北']
+				    }else{
+						aSquare[z].children[0].aA=['北','南','东','东北','东南'];
+				    }
+	    			aSquare[z].children[0].onclick=function(){//设置点击事件
+	    	            fnRemove(aSquare,this.z,difficulty.numY,this.aA);
+	                };
+	    		    fnFX(aSquare,z,difficulty.numY,aSquare[z].children[0].aA);
+			    }else if((z+1)%difficulty.numY==0){//右边
+					if((z+1)==difficulty.numY){
+						aSquare[z].children[0].aA=['南','西','西南']
+						
+					}else if(z+1==difficulty.num){
+						aSquare[z].children[0].aA=['北','西','西北']
+					}else{
+						aSquare[z].children[0].aA=['北','南','西','西北','西南']
+					}
+					aSquare[z].children[0].onclick=function(){
+			            fnRemove(aSquare,this.z,difficulty.numY,this.aA);
+		            };	
+					fnFX(aSquare,z,difficulty.numY,aSquare[z].children[0].aA);
+				}else if(z<difficulty.numX){//不是雷，并且余数大于0小于difficulty.numX-1，并且必须第一行//上边
+				    aSquare[z].children[0].aA=['南','西','东','西南','东南'];
+				    aSquare[z].children[0].onclick=function(){
+				         fnRemove(aSquare,this.z,difficulty.numX,this.aA);
+			        };	
+				    fnFX(aSquare,z,difficulty.numX,aSquare[z].children[0].aA);
+			    }else if(z>difficulty.num-difficulty.numX){//下边
+				    aSquare[z].children[0].aA=['北','西','东','西北','东北']
+				    aSquare[z].children[0].onclick=function(){
+				        fnRemove(aSquare,this.z,difficulty.numX,this.aA);
+			        };	
+					fnFX(aSquare,z,difficulty.numX,aSquare[z].children[0].aA);
+				}else{
+					aSquare[z].children[0].aA=['北','南','西','东','东北','东南','西北','西南']
+					aSquare[z].children[0].onclick=function(){
+				        fnRemove(aSquare,this.z,difficulty.numY,this.aA);
+			        };	
+					fnFX(aSquare,z,difficulty.numY,aSquare[z].children[0].aA);
+				}
+			}else{
+				aSquare[z].children[0].onclick=function(){
+				    fnRemove(aSquare,this.z);
+			    };	
+			}
+		}
+
+	}
+	function fnFX(aA,mZ,mM,aFX,bT){//OCr_di子数组，下标，上下，方向组，是否触发递归扫
+		for(var i=0;i<aFX.length;i++){
+			fnFX2(aA,mZ,mM,aFX[i],bT);
+		}
+	}
+	function fnFX2(aA,mZ,mM,sFX,bT){
+		switch(sFX)
+		{
+			case '北':
+			    if(aA[mZ-mM].zi=='雷'){
+				    aA[mZ].zi?aA[mZ].zi++:aA[mZ].zi=1;
+			    }else if(bT && aA[mZ-mM].children[0] && aA[mZ-mM].firstElementChild.className.indexOf('hong') == -1){
+					fnRemove(aA,mZ-mM,aA[mZ-mM].children[0].aA);
+				}
+				break;
+			case '南':
+			    if(aA[mZ+mM].zi=='雷'){
+				    aA[mZ].zi?aA[mZ].zi++:aA[mZ].zi=1;
+			    }else if(bT && aA[mZ+mM].children[0] && aA[mZ+mM].firstElementChild.className.indexOf('hong') == -1){
+					fnRemove(aA,mZ+mM,aA[mZ+mM].children[0].aA);
+				}
+				break;
+			case '西':
+			    if(aA[mZ-1].zi=='雷'){
+				    aA[mZ].zi?aA[mZ].zi++:aA[mZ].zi=1;
+			    }else if(bT && aA[mZ-1].children[0] && aA[mZ-1].firstElementChild.className.indexOf('hong') == -1){
+					fnRemove(aA,mZ-1,aA[mZ-1].children[0].aA);
+				}
+				break;
+			case '东':
+			    if(aA[mZ+1].zi=='雷'){
+				    aA[mZ].zi?aA[mZ].zi++:aA[mZ].zi=1;
+			    }else if(bT && aA[mZ+1].children[0] && aA[mZ+1].firstElementChild.className.indexOf('hong') == -1){
+					fnRemove(aA,mZ+1,aA[mZ+1].children[0].aA);
+				}
+				break;
+			case '西北':
+			    if(aA[mZ-mM-1].zi=='雷'){
+				    aA[mZ].zi?aA[mZ].zi++:aA[mZ].zi=1;
+			    }else if(bT && aA[mZ-mM-1].children[0] && aA[mZ-mM-1].firstElementChild.className.indexOf('hong') == -1){
+					fnRemove(aA,mZ-mM-1,aA[mZ-mM-1].children[0].aA);
+				}
+				break;
+			case '东北':
+			    if(aA[mZ-mM+1].zi=='雷'){
+				    aA[mZ].zi?aA[mZ].zi++:aA[mZ].zi=1;
+			    }else if(bT && aA[mZ-mM+1].children[0] && aA[mZ-mM+1].firstElementChild.className.indexOf('hong') == -1){
+					fnRemove(aA,mZ-mM+1,aA[mZ-mM+1].children[0].aA);
+				}
+				break;
+			case '西南':
+			    if(aA[mZ+mM-1].zi=='雷'){
+				    aA[mZ].zi?aA[mZ].zi++:aA[mZ].zi=1;
+			    }else if(bT && aA[mZ+mM-1].children[0] && aA[mZ+mM-1].firstElementChild.className.indexOf('hong') == -1){
+					fnRemove(aA,mZ+mM-1,aA[mZ+mM-1].children[0].aA);
+				}
+				break;
+			case '东南':
+			    if(aA[mZ+mM+1].zi=='雷'){
+				    aA[mZ].zi?aA[mZ].zi++:aA[mZ].zi=1;
+			    }else if(bT && aA[mZ+mM+1].children[0] && aA[mZ+mM+1].firstElementChild.className.indexOf('hong') == -1){
+					fnRemove(aA,mZ+mM+1,aA[mZ+mM+1].children[0].aA);
+				}
+				break;
+		}
+		come_back = OCr_di.cloneNode(true);	
+	}
+	function fnRemove(aSquare,mZ,aFX){//点击删除(OCr_di的子数组,位置,边长,方向)
+	    var oP=aSquare[mZ].children[0];//调用该方法的必须是按钮.onclick,aSquare[mZ]应该为按钮按钮
+		aSquare[mZ].removeChild(oP);
+		var aButton = OCr_di.getElementsByTagName('button');
+		if(aButton.length == difficulty.lei){//胜利条件：按键个数等于雷个数
+		     clearInterval(oD);
+			 oD=null;//BUF是右上角和完成不暂停
+			 for(var i=0;i<aButton.length;i++){
+				 aButton[i].onclick=null;
+				 aButton[i].oncontextmenu=null;
+			 }
+			 if(parseInt(aInput[0].value)>parseInt(getCookieK('B3'))){
+			     alert(aInput[0].value+'秒完成,犀利');
+			 }else{
+				 var sBan='探花';
+				 var mMiao=parseInt(aInput[0].value);
+				 var mB2=parseInt(getCookieK('B2'));
+				 var mB1=parseInt(getCookieK('B1'));
+				 if(mMiao<mB2 || !mB2){
+					 setCookie('B3',mB2,1000);
+					 if(mMiao<mB1 || !mB1){
+						 setCookie('B2',mB1,1000);
+					     setCookie('B1',mMiao,1000);
+						 sBan='状元'
+					 }else{
+						 setCookie('B2',mMiao,1000);
+						 sBan='榜眼';
+					 }
+				 }else{
+					 setCookie('B3',mMiao,1000);
+				 }
+				 var sName=prompt('恭喜你以'+mMiao+'秒成为'+sBan+',愿你名留青史.请填下你的姓名或者别号','路人');
+				 switch (sBan)
+				 {
+					 case '探花':
+					 setCookie('o3',sName,1000);
+					 break;
+					 case '榜眼':
+					 setCookie('o3',getCookieK('o2'),1000);
+					 setCookie('o2',sName,1000);
+					 break;
+					 case '状元':
+					 setCookie('o3',getCookieK('o2'),1000);
+					 setCookie('o2',getCookieK('o1'),1000);
+					 setCookie('o1',sName,1000);
+					 break;	 
+				 }
+			 }
+		}
+		if(aSquare[mZ].zi){//触雷或者周围有雷
+		    aSquare[mZ].innerHTML=aSquare[mZ].zi;
+			if(aSquare[mZ].zi=='雷'){
+				for(var i=0;i<aButton.length;i++){
+					aButton[i].onclick=null;
+					aButton[i].oncontextmenu=null;
+				}
+				if(confirm('触雷失败是否重新开局')){
+					oDivdi.state = true;
+					fnJC(fnP);
+					oDivdi.abc=false;
+				}else{
+					clearInterval(oD);
+					oD=null;
+				}
+			}
+		}else{//周围都没有雷会自动递归清楚周围
+			if(mZ%difficulty.numY==0 || (mZ+1)%difficulty.numY==0){//判断是否是每行的第一个//左边
+				fnFX(aSquare,mZ,difficulty.numY,oP.aA,true);
+			}else if(mZ<difficulty.numX || mZ>difficulty.num-difficulty.numX){
+				fnFX(aSquare,mZ,difficulty.numX,oP.aA,true);
+			}else{
+				fnFX(aSquare,mZ,difficulty.numY,oP.aA,true);
+			}
+		}
+		
+
+	}
+}
+</script>
+</head>
+	<body style="overflow:hidden">
+		<div id="A">
+			<div class="ld_box">
+				<div title="向右拉开局" class="ld"> 》》</div>
+			</div>
+			<button id="come_back">重开本局</button>
+			<div class="kk">
+				<span class="chuda">时间：</span><input  readonly="true" class="chuda" value="0"/>
+				<span class="chuda ds">地雷：</span>
+				<input readonly="true" class="chuda"/>
+			</div>
+			<div class="di">
+				<div class="cr_di"></div>
+			</div>
+			<div class="num_box">
+				<input type="text" class="num_inp" value="9*9" placeholder="总数"/>
+				<input type="text" class="lei_inp" value="10" placeholder="雷数"/>
+				<button>确定</button>
+			</div>
+		</div>
+		<div id="B">
+			<div class="B1"></div>
+			<div class="B2"></div>
+			<div class="B3"></div>
+		</div>
+		<input type="button" value="榜单" id="dian"/>
+	</body>
+</html>
