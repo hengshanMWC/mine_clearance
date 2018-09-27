@@ -439,7 +439,6 @@ window.onload=function(){
 			if(oDivdi.red < difficulty.lei){
 				this.className = 'hong';
 				oDivdi.red++;//设置上限++
-			    aInput[1].value = difficulty.lei - oDivdi.red;
 			}else{
 				this.className = 'huang';
 			}
@@ -451,6 +450,7 @@ window.onload=function(){
 			case 'huang':
 			this.className = '';
 		}
+		aInput[1].value = difficulty.lei - oDivdi.red;
 	}
 	
 	function fnP(){//局初始化
