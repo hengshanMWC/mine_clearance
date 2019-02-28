@@ -17,6 +17,7 @@
 	padding:0;
 	width:25px;
 	height:25px;
+	box-sizing: border-box;
 	float:left;
 }
 .kk input{
@@ -295,7 +296,7 @@ window.onload=function(){
 				var mML = v.clientX - mL;
 				if(mML>oDiv.offsetWidth-oDivld.offsetWidth){
 					mML=oDiv.offsetWidth-mML.offsetWidth;
-					oDivdi.state = true;
+					//oDivdi.state = true;
 					fnJC(fnP);
 				}
 				if(mML<0){
@@ -315,7 +316,7 @@ window.onload=function(){
 	}else{
 		oDivld.innerHTML = '新局';
 		oDivld.onclick = function(){
-			oDivdi.state = true;
+			//oDivdi.state = true;
 			fnJC(fnP);
 		}
 	}
@@ -465,7 +466,7 @@ window.onload=function(){
 		    oD.appendChild(oI);
 	    }
 	    OCr_di.style.height = OCr_di.children[0].offsetHeight * difficulty.numY + 'px'
-	    OCr_di.style.width = OCr_di.children[0].offsetWidth * difficulty.numX + 'px';
+	    OCr_di.style.width = OCr_di.children[0].offsetWidth * difficulty.numX + 2 + 'px';
 	}
 	//设置雷数
 	//oButton是当前第一次触发的按钮，所以不能为雷
@@ -646,13 +647,13 @@ window.onload=function(){
 		    parent.innerHTML = oButton.zi;
 			if(oButton.zi == '雷'){
 			    fnEnd();
-					if(confirm('触雷失败是否重新开局')){
-						oDivdi.state  =  true;
-						fnJC(fnP);
-						oDivdi.abc = false;
-					}else{
-						clearInterval(oD);
-					}
+				if(confirm('触雷失败是否重新开局')){
+					//oDivdi.state  =  true;
+					//oDivdi.abc = false;
+					fnJC(fnP);
+				}else{
+					clearInterval(oD);
+				}
 			}
 		}else{//周围都没有雷会自动递归清楚周围
 			fnFX(oButton);
