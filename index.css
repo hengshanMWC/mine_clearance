@@ -1,0 +1,130 @@
+.ds{
+	margin-left:40px;
+}
+.chuda{
+	font-size:16px;
+	font-weight:bold;
+}
+.di button,.di div{
+	margin:0;
+	padding:0;
+	width:25px;
+	height:25px;
+	box-sizing: border-box;
+	float:left;
+}
+.kk input{
+	width:40px;
+	height:20px;
+	background:#6FF;
+	font-size:16px;
+}
+.di button{
+	background:#00F;
+}
+.kk{
+	margin:20px 63px 20px 63px;
+	width:245px;
+	height:30px;
+	border:0px;
+}
+.hong{
+	background:red !important;
+}
+.huang{
+	background:#ffed00 !important;
+}
+#A,#B,.di div{
+	border:#000 solid 1px;
+}
+#A{
+	margin: 0 50%;
+	position: relative;
+	transform: translateX(-50%);
+	display: inline-block;
+
+}
+.di{
+	position: relative;
+	margin: 0 63px 30px 63px;
+	display: inline-block;
+}
+#come_back{
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	margin: 15px 0 0 5px;
+	color: #fff;
+	border: none;
+	background: #3cbd83;
+	box-shadow: 0 0 7px 1px #3cbd83;
+	cursor: pointer;
+    outline: none;
+}
+#A>button:hover{
+	font-size:16px;
+	color:#660;
+}
+.ld_box{
+	height:25px;
+	position:relative;
+}
+.ld{
+	width:40px;
+	height:100%;
+	position:absolute;
+	background:#CCC;
+	padding-left:10px;
+    cursor: grab;
+}
+#B{
+	width:200px;
+	height:350px;
+	border:#000 solid 1px;
+	position:absolute;
+	right:0;
+	top:0;
+}
+#B >div{
+	width:110px;
+	height:40px;
+	left:25px;
+	position:relative;
+	padding:15px 0 0 30px;
+}
+.B1{
+	border:#FF0 solid 1px;
+	top:30px;
+}
+.B2{
+	border:#999 solid 1px;
+	top:60px;
+}
+.B3{
+	border:#F90 solid 1px;
+	top:90px;
+}
+#dian{
+	position:absolute;
+	top:350px;
+	right:0;
+}
+.num_box{
+	margin-bottom: 20px;
+    text-align: center;
+}
+.num_box input{
+	width: 75px;
+	padding: 2px 5px;
+	border: thin solid #ded6d6;
+	height: 17px;
+}
+.num_box button{
+	width: 75px;
+	border-radius: 6px;
+	border: none;
+	color: #fff;
+	background: #64c2d2;
+	height: 25px;
+	cursor: pointer;
+}
