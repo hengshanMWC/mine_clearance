@@ -3,6 +3,7 @@
 #### 项目介绍
 刚刚学js那段时间学得，现在拿起来重构
 
+[试玩亿下](https://hengshanmwc.github.io/mine_clearance/index.html)
 #### 目录结构
 src
 
