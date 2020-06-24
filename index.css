@@ -29,10 +29,14 @@
 	border:0px;
 }
 .hong{
-	background:red !important;
+	/* background:red !important; */
+	background: url('./image//hong.png') no-repeat !important;
+	background-size: 100% 100% !important;
 }
 .huang{
-	background:#ffed00 !important;
+	/* background:#ffed00 !important; */
+	background: url('./image//huang.jpg') no-repeat !important;
+	background-size: 100% 100% !important;
 }
 #A,#B,.di div{
 	border:#000 solid 1px;
