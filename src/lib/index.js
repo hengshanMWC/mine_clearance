@@ -10,7 +10,11 @@ $('#come_back').onclick = function(){
 		fnM();
 	}
 }
-
+$('#rule').onclick= function () {
+	alert(`规则如下：
+	和市面上的扫雷规则一样。在不触雷的情况下，排除所有的雷就是赢。
+	左键挖方块，右键为标记雷，两次右键为问号雷`)
+}
 function fnJC(fn){//集成的
     clearInterval(oD);
 	while(OCr_di.children.length){
